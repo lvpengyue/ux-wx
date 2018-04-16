@@ -214,7 +214,7 @@ export default {
         handleShare() {
             this.wxMethods.wxReady(this.pinDetail.data.wxConfig);
             wx.ready(() => {
-                this.wxMethods.wxShare(this.pinDetail.data.shareVo);
+                this.wxMethods.wxShare(this.pinDetail.data.shareVo, this);
             });
         },
 

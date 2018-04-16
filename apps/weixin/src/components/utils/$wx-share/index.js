@@ -30,13 +30,17 @@ export default {
                 link: info.shareURL,
                 imgUrl: info.pic,
                 success: () => {
-                    alert('已成功分享到朋友圈');
-                    if (vmObj) {
-                        vmObj.shareVisible = false;
-                    }
+                    vmObj.shareVisible = false;
+                    vmObj.$toast({
+                        message: '分享成功',
+                        duration: 1000
+                    });
                 },
                 cancel: () => {
-                    alert('已取消分享');
+                    vmObj.$toast({
+                        message: '分享失败',
+                        duration: 1000
+                    });
                 }
             });
             wx.onMenuShareAppMessage({
@@ -47,15 +51,17 @@ export default {
                 type: 'link', // 分享类型,music、video或link，不填默认为link
                 dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                 success: () => {
-                    // 用户确认分享后执行的回调函数
-                    alert('分享成功');
-                    if (vmObj) {
-                        vmObj.shareVisible = false;
-                    }
+                    vmObj.shareVisible = false;
+                    vmObj.$toast({
+                        message: '分享成功',
+                        duration: 1000
+                    });
                 },
                 cancel: () => {
-                    // 用户取消分享后执行的回调函数
-                    alert('已取消分享');
+                    vmObj.$toast({
+                        message: '分享失败',
+                        duration: 1000
+                    });
                 }
             });
 
@@ -65,15 +71,17 @@ export default {
                 link: info.shareURL, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: info.pic, // 分享图标
                 success: () => {
-                    // 用户确认分享后执行的回调函数
-                    alert('分享成功');
-                    if (vmObj) {
-                        vmObj.shareVisible = false;
-                    }
+                    vmObj.shareVisible = false;
+                    vmObj.$toast({
+                        message: '分享成功',
+                        duration: 1000
+                    });
                 },
                 cancel: () => {
-                    // 用户取消分享后执行的回调函数
-                    alert('已取消分享');
+                    vmObj.$toast({
+                        message: '分享失败',
+                        duration: 1000
+                    });
                 }
             });
 
@@ -83,15 +91,17 @@ export default {
                 link: info.shareURL, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: info.pic, // 分享图标
                 success: () => {
-                    // 用户确认分享后执行的回调函数
-                    alert('分享成功');
-                    if (vmObj) {
-                        vmObj.shareVisible = false;
-                    }
+                    vmObj.shareVisible = false;
+                    vmObj.$toast({
+                        message: '分享成功',
+                        duration: 1000
+                    });
                 },
                 cancel: () => {
-                    // 用户取消分享后执行的回调函数
-                    alert('已取消分享');
+                    vmObj.$toast({
+                        message: '分享失败',
+                        duration: 1000
+                    });
                 }
             });
 
@@ -101,15 +111,17 @@ export default {
                 link: info.shareURL, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 imgUrl: info.pic, // 分享图标
                 success: () => {
-                    // 用户确认分享后执行的回调函数
-                    alert('分享成功');
-                    if (vmObj) {
-                        vmObj.shareVisible = false;
-                    }
+                    vmObj.shareVisible = false;
+                    vmObj.$toast({
+                        message: '分享成功',
+                        duration: 1000
+                    });
                 },
                 cancel: () => {
-                    // 用户取消分享后执行的回调函数
-                    alert('已取消分享');
+                    vmObj.$toast({
+                        message: '分享失败',
+                        duration: 1000
+                    });
                 }
             });
         });
