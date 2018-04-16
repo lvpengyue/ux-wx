@@ -72,7 +72,6 @@ const actions = {
         const name = config.name;
 
         if (state[name] && state[name].status === STATUS_PENDING) {
-
             // 中断尚未收到响应的请求
             _jqXHRs[name].abort();
         }
@@ -125,7 +124,7 @@ const actions = {
             // 判断已有缓存是否有效
             if (useCache) {
                 switch (response.code) {
-                    case 0:
+                    case 1:
                         await $cache.setItem(cacheKey, response);
                         break;
 
@@ -142,7 +141,7 @@ const actions = {
                 response = config.format(response);
             }
 
-            if (response.code === 0) {
+            if (response.code !== undefined) {
                 commit({
                     type: $APIS_CALL,
                     payload: {
@@ -154,7 +153,7 @@ const actions = {
                     }
                 });
 
-                const originalData = response.data;
+                const originalData = response;
 
                 // 对设置了 schema 的接口响应进行范式化处理
                 if (config.schema) {

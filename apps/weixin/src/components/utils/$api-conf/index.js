@@ -1,51 +1,234 @@
 import $apiConf from '@components/utils/$api-conf';
-import $schemas from '../$schemas';
+
+// import $schemas from '../$schemas';
 
 
 
 export default Object.assign({
-    WEATHERS_GET: {
 
-        /**
-         * 接口名称，用于在状态树中保存该接口相关信息
-         * @type {String}
-         */
-        name: 'WEATHERS_GET',
+    /**
+     * 测试vue
+     * @type {Object}
+     */
+    TEST_VUE: {
+        name: 'TEST_VUE',
 
-        /**
-         * 请求参数
-         * @type {Object}
-         */
         proxy: {
-            url: 'https://query.yahooapis.com/v1/public/yql',
+            url: 'http://192.168.0.151:12319/testvue',
+
             method: 'GET',
             dataType: 'json',
-            data: {
-                format: 'json'
+            xhrFields: {
+                withCredentials: true
             }
-        },
+        }
+    },
 
-        /**
-         * 格式化函数，用于处理非标准接口响应
-         * @param {Object} response 原始响应
-         * @return {Object} 格式化响应
-         */
-        format(response) {
-            return response.query.count ? {
-                code: 0,
-                data: Object.assign({
-                    created: response.query.created
-                }, response.query.results.channel)
-            } : {
-                code: 1,
-                data: response.query.created
-            };
-        },
+    /**
+     * 订单详情
+     * @type {Object}
+     */
+    API_MALL_ORDER_DETAILS: {
+        name: 'API_MALL_ORDER_DETAILS',
 
-        /**
-         * 范式化处理 schema
-         * @type {Object}
-         */
-        schema: $schemas.channel
+        proxy: {
+            url: '/api/mallOrder/details',
+            method: 'POST',
+            dataType: 'json',
+
+            // contentType: 'application/json; charset=UTF-8',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 订单详情(支付成功后)
+     * @type {Object}
+     */
+    API_MALL_ORDER_GET_DETAILS: {
+        name: 'API_MALL_ORDER_GET_DETAILS',
+
+        proxy: {
+            url: '/api/mallOrder/get-details',
+            method: 'POST',
+            dataType: 'json',
+
+            // contentType: 'application/json; charset=UTF-8',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 获取验证码
+     * @type {Object}
+     */
+    API_CODE_GET_CODE: {
+        name: 'API_CODE_GET_CODE',
+
+        proxy: {
+            url: '/api/code/getcode',
+            method: 'GET',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 获取/更换图片验证码
+     * @type {Object}
+     */
+    API_CODE_GET_IMGCODE: {
+        name: 'API_CODE_GET_IMGCODE',
+
+        proxy: {
+            url: '/api/code/get-imgcode',
+            method: 'GET',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 验证图片验证码
+     * @type {Object}
+     */
+    API_CODE_VALI_IMGCODE: {
+        name: 'API_CODE_VALI_IMGCODE',
+
+        proxy: {
+            url: '/api/code/vali-imgcode',
+            method: 'GET',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 登录
+     * @type {Object}
+     */
+    API_USER_LOGIN: {
+        name: 'API_USER_LOGIN',
+
+        proxy: {
+            url: '/api/user/login',
+            method: 'GET',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 添加收货地址
+     * @type {Object}
+     */
+    API_ADDRESS_SAVE: {
+        name: 'API_ADDRESS_SAVE',
+
+        proxy: {
+            url: '/api/address/save',
+            method: 'GET',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 参与拼团
+     * @type {Object}
+     */
+    API_MALL_PRODUCT_CONFIRM_PRODUCT: {
+        name: 'API_MALL_PRODUCT_CONFIRM_PRODUCT',
+
+        proxy: {
+            url: '/api/mallProduct/confirm-product',
+            method: 'GET',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 商品详情接口
+     * @type {Object}
+     */
+    API_MALL_PRODUCT_DETAILS: {
+        name: 'API_MALL_PRODUCT_DETAILS',
+
+        proxy: {
+            url: '/api/mallProduct/details',
+            method: 'GET',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 支付前微信初始化
+     * @type {Object}
+     */
+    MALL_GET_CONFIG: {
+        name: 'MALL_GET_CONFIG',
+
+        proxy: {
+            url: '/mall/get/config',
+            method: 'GET',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 创建拼团订单--点击支付时调用
+     * @type {Object}
+     */
+    API_MALL_ORDER_CREATE_GROUP: {
+        name: 'API_MALL_ORDER_CREATE_GROUP',
+
+        proxy: {
+            url: '/api/mallOrder/create-group',
+            method: 'GET',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 创建微信支付订单--创建订单成功后调用
+     * @type {Object}
+     */
+    API_PAY_WXPAY_PREPAY: {
+        name: 'API_PAY_WXPAY_PREPAY',
+
+        proxy: {
+            url: '/api/pay/wxpay/prepay',
+            method: 'GET',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
     }
 }, $apiConf);

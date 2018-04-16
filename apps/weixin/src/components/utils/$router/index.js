@@ -21,10 +21,10 @@ const router = new VueRouter({
     routes: [{
         path: '/',
         redirect: {
-            name: 'demo'
+            name: 'pin-tuan'
         }
     }, {
-        path: '/pin-tuan',
+        path: '/pin-tuan/:rsa',
         name: 'pin-tuan',
         component(resolve) {
             require.ensure(['../../views/pin-tuan/index.vue'], () => {
@@ -32,24 +32,46 @@ const router = new VueRouter({
             }, 'static/views/pin-tuan/index');
         }
     }, {
-        path: '/demo',
-        name: 'demo',
+        path: '/pay/:groupOrderId',
+        name: 'pay',
         component(resolve) {
-            require.ensure(['../../views/demo/index.vue'], () => {
-                resolve(require('../../views/demo/index.vue'));
-            }, 'static/views/demo/index');
+            require.ensure(['../../views/pay/index.vue'], () => {
+                resolve(require('../../views/pay/index.vue'));
+            }, 'static/views/pay/index');
+        }
+    }, {
+        path: '/confirm-order/:groupOrderId',
+        name: 'confirm-order',
+        component(resolve) {
+            require.ensure(['../../views/confirm-order/index.vue'], () => {
+                resolve(require('../../views/confirm-order/index.vue'));
+            }, 'static/views/confirm-order/index');
+        }
+    }, {
+        path: '/order-detail/:orderId',
+        name: 'order-detail',
+        component(resolve) {
+            require.ensure(['../../views/order-detail/index.vue'], () => {
+                resolve(require('../../views/order-detail/index.vue'));
+            }, 'static/views/order-detail/index');
+        }
+    }, {
+        path: '/shop-detail/:id',
+        name: 'shop-detail',
+        component(resolve) {
+            require.ensure(['../../views/shop-detail/index.vue'], () => {
+                resolve(require('../../views/shop-detail/index.vue'));
+            }, 'static/views/shop-detail/index');
         }
     }]
 });
 
 router.beforeEach((to, from, next) => {
-
     // 系统初始化逻辑
     next();
 });
 
 router.afterEach(() => {
-
     // 切换页面后将屏幕滚动至顶端
     window.scrollTo(0, 0);
 });

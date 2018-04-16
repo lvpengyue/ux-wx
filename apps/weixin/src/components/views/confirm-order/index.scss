@@ -1,0 +1,64 @@
+.confirm-order {
+    width: 100%;
+    height: 100%;
+
+    .address-box {
+        margin-top: 20px; /* px */
+
+        border-bottom: 1px solid #ddd; /* no */
+    }
+
+    & > .mint-button {
+        height: 40px; /* px */
+        margin: 20px; /* px */
+    }
+
+    .tip {
+        line-height: 40px; /* no */
+
+        height: 40px; /* no */
+        padding: 0 20px; /* px */
+
+        color: #12b8f6;
+
+        img {
+            position: relative;
+            top: 3px;
+        }
+    }
+
+    .buy-wrap {
+        font-size: 40px; /* px */
+        line-height: 80px; /* px */
+
+        position: fixed;
+        bottom: 0;
+
+        display: flex;
+
+        width: 100%;
+        height: 80px; /* px */
+
+        background-color: #fff;
+
+        .price {
+            width: 70%;
+            padding-right: 20px; /* px */
+
+            text-align: right;
+
+            span {
+                color: red;
+            }
+        }
+
+        .buy {
+            width: 30%;
+
+            text-align: center;
+
+            color: #fff;
+            background-color: #26a2ff;
+        }
+    }
+}

@@ -1,0 +1,158 @@
+
+.address-picker {
+    position: absolute;
+    z-index: 120;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(12, 34, 44, 0.3);
+
+    .edit-wrap {
+        font-family: Arial, Helvetica, sans-serif;
+
+        position: absolute;
+        z-index: 122;
+        top: 26%;
+        left: 10%;
+
+        width: 80%;
+        padding: 20px; /* px */
+
+        .close {
+            height: 40px; /* px */
+            padding: 0 20px; /* px */
+
+            text-align: right;
+
+            img {
+                height: 28px; /* px */
+            }
+        }
+
+        .mint-header {
+            color: #111;
+            // border-bottom: 1px solid #eee;
+            border-radius: 8px 8px 0 0; /* no */
+            background-color: #fff;
+
+            .mint-header-title {
+                font-size: 32px; /* px */
+                font-weight: bold;
+            }
+        }
+
+        .mint-field {
+            font-size: 30px; /* px */
+
+            min-height: 80px; /* px */
+
+            border-bottom: 1px solid #eee; /* px */
+
+            .mint-cell-wrapper {
+                font-size: 26px; /* px */
+
+                background: none;
+
+                .mint-cell-title {
+                    width: 120px; /* px */
+                }
+            }
+        }
+
+        .btn-wrap {
+            line-height: 80px; /* px */
+
+            height: 80px; /* px */
+            padding: 0 20px; /* px */
+
+            border-radius: 0 0 8px 8px; /* no */
+            background-color: #fff;
+
+            button {
+                font-size: 30px; /* px */
+
+                width: 100%;
+                height: 60px; /* px */
+
+                border-radius: 6px; /* no */
+            }
+        }
+    }
+
+    .pick-mark {
+        position: fixed;
+        z-index: 1090;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background: rgba(236, 240, 243, 0.8);
+
+        .btn-box {
+            font-size: 30px; /* px */
+
+            position: absolute;
+            right: 0;
+            bottom: 380px; /* px */
+            left: 0;
+
+            display: flex;
+
+            height: 40px; /* px */
+            padding: 0 20px;
+
+            background: #fff;
+
+            justify-content: space-between;
+            align-items: center;
+
+            .btn-cancel {
+                color: #55f;
+            }
+
+            .btn-sure {
+                color: #e5004d;
+            }
+        }
+
+        .select {
+            position: absolute;
+            bottom: 0; /* px */
+            left: 0;
+
+            width: 100%;
+        }
+
+        .picker-items {
+            height: 380px; /* px */
+
+            background: #eee;
+
+            .picker-slot {
+                font-size: 24px; /* px */
+
+                .pick-slot-wrapper {
+                    height: 380px; /* px */
+                }
+            }
+
+            .picker-item {
+                line-height: 36px; /* px */
+
+                height: 36px; /* px */
+                &.picker-selected {
+                    color: red;
+                }
+            }
+
+            .picker-center-highlight {
+                &:before,
+                &:after {
+                    background-color: #888;
+                }
+            }
+        }
+    }
+}

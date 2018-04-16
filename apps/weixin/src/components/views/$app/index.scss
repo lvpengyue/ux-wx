@@ -18,10 +18,47 @@ body {
     position: relative;
 
     width: 100%;
+    height: 100%;
     min-height: 100%;
 
+    background-color: #f6f6f6;
+
     .page-wrapper {
-        width: 750px;
+        font-family: "Times New Roman", Times, serif;
+        // width: 750px;
+
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
         margin: 0 auto;
     }
+}
+
+.mint-header {
+    font-size: 28px; /* px */
+    line-height: 100px; /* px */
+
+    height: 100px; /* px */
+
+    .mint-header-title {
+        font-size: 36px; /* px */
+    }
+
+    .mint-header-button {
+        button {
+            height: 100px; /* px */
+
+            .mint-button-icon {
+                i {
+                    font-size: 28px; /* px */
+                }
+            }
+        }
+    }
+}
+
+.mint-button {
+    font-size: 28px; /* px */
+
+    height: 100px; /* px */
 }
