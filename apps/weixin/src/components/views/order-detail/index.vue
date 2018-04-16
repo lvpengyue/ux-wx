@@ -1,6 +1,6 @@
 <template>
     <div class="order-detail"
-         v-if="orderDetail && orderDetail.data">
+         v-if="orderDetail && orderDetail.data && orderDetail.data.isPaySuccess">
         <div class="share-wrap"
              @click="hideShare()"
              v-show="shareVisible">

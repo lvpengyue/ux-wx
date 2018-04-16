@@ -134,7 +134,7 @@ export default {
 
                 return false;
             }
-            if (!/^[1][3,4,5,7,8][0-9]{9}$/.test(this.location.phone)) {
+            if (!/^[1][0,1,2,3,4,5,6,7,8,9][0-9]{9}$/.test(this.location.phone)) {
                 this.$toast('请输入正确的手机号');
 
                 return false;

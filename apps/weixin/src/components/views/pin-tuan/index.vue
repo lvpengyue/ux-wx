@@ -64,7 +64,7 @@
                              @click="getImgCode()">
                     </mt-field>
                     <mt-button type="primary"
-                               @click="handleSubmit()">登录</mt-button>
+                               @click.prevent="handleSubmits()">登录</mt-button>
                 </form>
             </div>
             <div class="code"

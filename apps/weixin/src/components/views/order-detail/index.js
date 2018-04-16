@@ -13,19 +13,6 @@ export default {
         document.title = '订单详情';
 
         next(async (vm) => {
-            vm.$toast({
-                message: '支付成功',
-                iconClass: 'icon icon-success',
-                duration: 300000
-            });
-            if (from.name == 'pay') {
-                vm.$toast({
-                    message: '支付成功',
-                    iconClass: 'icon icon-success',
-                    duration: 2000
-                });
-            }
-
             const orderId = to.params.orderId;
 
             await vm.orderGetDetail({
@@ -35,12 +22,20 @@ export default {
                 pageUrl: encodeURIComponent(window.location.href)
             });
 
-            vm.wxMethods.wxReady(vm.orderDetail.data.wxConfig);
-            wx.ready(() => {
-                vm.wxMethods.wxShare(vm.orderDetail.data.shareVo, vm);
-            });
+            if (from.name === 'pay') {
+                if (vm.orderDetail.data.isPaySuccess) {
+                    vm.handleSuccess();
+                } else {
+                    vm.handleFail();
+                }
+            }
 
-            vm.handleSuccess();
+            if (vm.orderDetail && vm.orderDetail.data.isPaySuccess) {
+                vm.wxMethods.wxReady(vm.orderDetail.data.wxConfig);
+                wx.ready(() => {
+                    vm.wxMethods.wxShare(vm.orderDetail.data.shareVo, vm);
+                });
+            }
         });
     },
     data() {
@@ -98,6 +93,14 @@ export default {
                 message: '支付成功',
                 iconClass: 'icon icon-success',
                 duration: 2000
+            });
+        },
+
+        handleFail() {
+            this.$toast({
+                message: '支付失败',
+                iconClass: 'icon icon-fail',
+                duration: 200000
             });
         },
 

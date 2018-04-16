@@ -143,8 +143,6 @@ const actions = {
 
             if (response.code !== 1) {
                 alert(response.msg);
-
-                return;
             }
 
             commit({

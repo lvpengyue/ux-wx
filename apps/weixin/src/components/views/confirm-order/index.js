@@ -66,7 +66,7 @@ export default {
         },
 
         async handleBuy() {
-            if (!this.$groupAddress || !this.$groupAddress.data.streetAddress) {
+            if (!this.$groupAddress || !this.$groupAddress.data || !this.$groupAddress.data.streetAddress) {
                 this.$toast('请新增收货地址');
             } else {
                 this.$router.push({

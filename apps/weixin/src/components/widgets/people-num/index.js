@@ -48,6 +48,8 @@ export default {
         };
     },
     mounted() {
+        let timer = null;
+
         setTimeout(() => {
             if (this.peopleData.data.groupOrderRefer.groupStatus == 3 || this.peopleData.data
                 .groupOrderRefer.groupStatus == 2) {
@@ -61,9 +63,12 @@ export default {
 
                 if (distanceTime >= 0) {
                     this.distTime = this.formatTime(distanceTime);
-                    setInterval(() => {
+                    timer = setInterval(() => {
                         distanceTime -= 1000;
                         this.distTime = this.formatTime(distanceTime);
+                        if (distanceTime <= 0) {
+                            clearInterval(timer);
+                        }
                     }, 1000);
                 } else {
                     alert('拼团时间已到，请参加其他拼团！');

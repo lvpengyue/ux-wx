@@ -101,34 +101,45 @@ export default {
             };
         },
         async getCode() {
-            if (this.phone && /^[1][3,4,5,7,8][0-9]{9}$/.test(this.phone)) {
+            if (this.phone && /^[1][0,1,2,3,4,5,6,7,8,9][0-9]{9}$/.test(this.phone)) {
                 // 如果有图片验证码，先进行图片验证码的操作
-                if (this.captcha) {
+                if (this.captcha || (this.pinCodeDetail && this.pinCodeDetail.data.imageBase64String)) {
                     await this.pinValidImageCodeDetail({
                         code: this.captcha,
                         phone: this.phone
                     });
 
-                    if (this.pinImgValid.code != 1) {
-                        return false;
-                    }
-                }
-                await this.pinGetCodeDetail({
-                    codeType: 2,
-                    phone: this.phone
-                });
-                if (this.pinCodeDetail.success) {
-                    let timer = null;
+                    if (this.pinImgValid.code === 1) {
+                        let timer = null;
 
-                    this.backSec = 60;
-                    this.getCodeBoolean = true;
-                    timer = setInterval(() => {
-                        this.backSec -= 1;
-                        if (this.backSec <= 0) {
-                            this.getCodeBoolean = false;
-                            clearInterval(timer);
-                        }
-                    }, 1000);
+                        this.backSec = 60;
+                        this.getCodeBoolean = true;
+                        timer = setInterval(() => {
+                            this.backSec -= 1;
+                            if (this.backSec <= 0) {
+                                this.getCodeBoolean = false;
+                                clearInterval(timer);
+                            }
+                        }, 1000);
+                    }
+                } else {
+                    await this.pinGetCodeDetail({
+                        codeType: 2,
+                        phone: this.phone
+                    });
+                    if (this.pinCodeDetail.code === 1) {
+                        let timer = null;
+
+                        this.backSec = 60;
+                        this.getCodeBoolean = true;
+                        timer = setInterval(() => {
+                            this.backSec -= 1;
+                            if (this.backSec <= 0) {
+                                this.getCodeBoolean = false;
+                                clearInterval(timer);
+                            }
+                        }, 1000);
+                    }
                 }
             } else {
                 this.$toast('请正确填写手机号');
@@ -139,7 +150,7 @@ export default {
          * 获取或者更换图片验证码
          */
         async getImgCode() {
-            if (this.phone && /^[1][3,4,5,7,8][0-9]{9}$/.test(this.phone)) {
+            if (this.phone && /^[1][0,1,2,3,4,5,6,7,8,9][0-9]{9}$/.test(this.phone)) {
                 await this.pinGetImageCodeDetail({
                     phone: this.phone
                 });
@@ -149,9 +160,9 @@ export default {
         /**
          * 登录
          */
-        async handleSubmit() {
+        async handleSubmits() {
             // 然后验证登录
-            if (!this.phone || !/^[1][3,4,5,7,8][0-9]{9}$/.test(this.phone)) {
+            if (!this.phone || !/^[1][0,1,2,3,4,5,6,7,8,9][0-9]{9}$/.test(this.phone)) {
                 this.$toast('请正确填写手机号');
             } else if (!this.code) {
                 this.$toast('请填写验证码');
