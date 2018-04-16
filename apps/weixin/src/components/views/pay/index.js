@@ -95,7 +95,7 @@ export default {
                             that.$router.push({
                                 name: 'order-detail',
                                 params: {
-                                    orderId: that.$route.params.orderId
+                                    orderId: that.payCreateGroup.data.productOrder.id
                                 }
                             });
                         }
