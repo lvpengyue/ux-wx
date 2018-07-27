@@ -13,6 +13,11 @@ import pintuan from './modules/pin-tuan';
 import shopDetail from './modules/shop-detail';
 import confirmOrder from './modules/confirm-order';
 import pay from './modules/pay';
+import home from './modules/home';
+import feedback from './modules/feedback';
+import questionnaire from './modules/questionnaire';
+import failReporting from './modules/fail-reporting';
+import applyRefund from './modules/apply-refund';
 import orderDetail from './modules/order-detail';
 
 
@@ -50,6 +55,11 @@ export default new Vuex.Store({
         shopDetail,
         confirmOrder,
         pay,
-        orderDetail
+        orderDetail,
+        home,
+        feedback,
+        questionnaire,
+        failReporting,
+        applyRefund
     }
 });

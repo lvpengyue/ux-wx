@@ -8,6 +8,8 @@
 
 html,
 body {
+    overflow: hidden;
+
     height: 100%;
     min-height: 100%;
 
@@ -24,13 +26,17 @@ body {
     background-color: #f6f6f6;
 
     .page-wrapper {
-        font-family: "Times New Roman", Times, serif;
+        font-family: "微软雅黑", "Times New Roman", Times, serif;
+
+        overflow: auto;
         // width: 750px;
 
         width: 100%;
         height: 100%;
         min-height: 100%;
         margin: 0 auto;
+
+        -webkit-overflow-scrolling: touch;
     }
 }
 
@@ -60,5 +66,33 @@ body {
 .mint-button {
     font-size: 28px; /* px */
 
+    height: 100px; /* px */
+}
+
+.van-toast {
+    font-size: 30px;
+
+    width: 360px;
+    height: 360px;
+
+    .van-toast__icon {
+        font-size: 120px;
+    }
+
+    .van-toast__text {
+        font-size: 30px;
+    }
+}
+
+.van-icon-fail::before {
+    color: red;
+}
+
+.van-icon-success::before {
+    color: #12b8f6;
+}
+
+.van-loading {
+    width: 100px; /* px */
     height: 100px; /* px */
 }

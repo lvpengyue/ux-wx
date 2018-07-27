@@ -75,19 +75,22 @@
         }
     }
 
-    .mint-navbar {
+    .van-tabs__wrap {
+        height: 80px; /* px */
         margin-top: 20px; /* px */
 
-        .mint-tab-item {
-            padding: 34px; /* px */
+        .van-tab {
+            line-height: 80px; /* px */
 
-            .mint-tab-item-label {
+            height: 80px; /* px */
+
+            .van-ellipsis {
                 font-size: 30px; /* px */
             }
         }
     }
 
-    .mint-tab-container {
+    .van-tabs__content {
         img {
             width: 100%;
         }

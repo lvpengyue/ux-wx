@@ -1,0 +1,263 @@
+.home {
+    position: relative;
+
+    overflow: scroll;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+
+    background: #efefef;
+
+    -webkit-overflow-scrolling: touch;
+
+    .feedback,
+    .trouble {
+        position: fixed;
+
+        width: 66px;
+        height: 66px;
+
+        border-radius: 33px;
+        background-color: #fff;
+        box-shadow: #efefef 0 0 8px 4px;
+    }
+
+    .feedback {
+        bottom: 500px;
+        left: 26px;
+
+        background-image: url("./assets/feedback.png");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 40px 40px;
+    }
+
+    .feedbackdown {
+        bottom: 220px;
+    }
+
+    .trouble {
+        bottom: 400px;
+        left: 26px;
+
+        background-image: url("./assets/trouble.png");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 40px 40px;
+    }
+
+    .troubledown {
+        bottom: 120px;
+    }
+
+    .people {
+        position: fixed;
+        right: 0;
+        bottom: 440px;
+
+        width: 86px;
+        height: 80px;
+
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+        background-color: #fff;
+        box-shadow: #efefef 0 0 8px 4px;
+
+        .people-inner {
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+
+            border-radius: 35px;
+            background-color: #f6f9fe;
+            background-image: url("./assets/people.png");
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: 50px 50px;
+        }
+    }
+
+    .peopledown {
+        bottom: 160px;
+    }
+
+    .van-swipe {
+        img {
+            width: 100%;
+            height: 310px;
+        }
+    }
+
+    .content {
+        margin: 20px 40px;
+
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+
+            display: flex;
+
+            margin: 20px 0;
+
+            text-align: center;
+
+            color: #333;
+
+            align-items: center;
+            justify-content: space-between;
+
+            .van-icon {
+                font-size: 28px;
+
+                position: relative;
+                top: 4px;
+            }
+        }
+    }
+
+    .content-empty {
+        margin-top: 100px;
+
+        text-align: center;
+
+        img {
+            width: 360px;
+        }
+
+        p {
+            font-size: 32px;
+            font-weight: 800;
+
+            margin-top: 70px;
+
+            color: #999;
+
+            span {
+                color: #6cb3cf;
+            }
+        }
+    }
+
+    .bottom {
+        position: fixed;
+        z-index: 12;
+        bottom: 0;
+
+        width: 100%;
+        height: 90px;
+
+        .top {
+            display: flex;
+
+            width: 100%;
+            height: 90px;
+
+            background-image: url("./assets/half-circle.png");
+            background-size: 100% 90px;
+
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 30px;
+            }
+        }
+
+        .bottom {
+            width: 100%;
+            height: 280px;
+
+            background-color: #fff;
+
+            .scan {
+                display: flex;
+                flex-direction: column;
+
+                width: 180px;
+                height: 180px;
+                margin: 0 auto;
+
+                border-radius: 115px;
+                background-color: #2fc6f8;
+
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 50px;
+                }
+
+                p {
+                    font-size: 28px;
+
+                    margin-top: 10px;
+
+                    color: #fff;
+                }
+            }
+
+            .hand_input {
+                font-size: 28px;
+                font-weight: 500;
+                line-height: 100px;
+
+                width: 220px;
+                height: 100px;
+                margin: 0 auto;
+                padding-left: 34px;
+
+                color: #909090;
+                background-image: url("./assets/hand_input.png");
+                background-repeat: no-repeat;
+                background-position: 0 50%;
+                background-size: 28px;
+            }
+        }
+    }
+
+    .show {
+        height: 370px;
+    }
+}
+
+.van-dialog {
+    font-size: 36px;
+
+    width: 70%;
+
+    border-radius: 24px;
+
+    .van-dialog__message {
+        padding: 40px 60px;
+
+        text-align: center;
+    }
+
+    .van-dialog__footer {
+        // padding: 20px 0;
+        .van-button {
+            margin: 20px 0;
+
+            .van-button__text {
+                font-size: 36px;
+            }
+        }
+    }
+}
+
+.person-over {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.person-popup {
+    width: 80%;
+    height: 100%;
+}
+
+.van-popup {
+    .popad-img {
+        width: 550px;
+        height: 750px;
+    }
+}

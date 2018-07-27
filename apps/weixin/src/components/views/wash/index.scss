@@ -1,0 +1,162 @@
+.wash {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    // padding: 30px;
+
+    text-align: center;
+
+    background-image: url("./assets/wash-bg.png");
+    background-size: 100% 100%;
+
+    -webkit-overflow-scrolling: touch;
+
+    .wash-wrap {
+        line-height: 530px;
+
+        width: 530px;
+        height: 530px;
+        margin: 0 auto;
+        margin-top: 80px;
+
+        img {
+            width: 530px;
+            height: 530px;
+        }
+
+        .wash_img {
+            position: relative;
+            z-index: 900;
+
+            animation: waveCircle 4s linear;
+            animation-iteration-count: infinite;
+        }
+
+        @-webkit-keyframes waveCircle {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .wash-percent {
+            font-size: 160px;
+
+            position: absolute;
+            z-index: 901;
+            top: 0;
+            left: 45px;
+
+            width: 460px;
+
+            color: #12b8f6;
+            text-shadow: 0 0 10px #11b0f5;
+
+            span {
+                font-size: 34px;
+            }
+        }
+
+        .start-wash {
+            font-size: 60px;
+
+            color: #fff;
+            text-shadow: 0 0 10px #11b0f5;
+        }
+    }
+
+    .wash-start {
+        border-radius: 275px;
+        background-color: #7fd6fa;
+    }
+
+    .wash-circle {
+        position: relative;
+
+        overflow: hidden;
+
+        text-align: center;
+
+        border-radius: 275px;
+
+        .inner-circle {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+
+            overflow: hidden;
+
+            width: 470px;
+            height: 470px;
+
+            border-radius: 235px;
+            background-color: #fff;
+
+            @-webkit-keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .rotate {
+                animation: rotate 5.5s linear infinite;
+            }
+
+            .circle1 {
+                position: absolute;
+                z-index: 899;
+                top: 300px;
+                left: -358px;
+
+                width: 1340px;
+                height: 1340px;
+                // transform: rotate(70deg);
+
+                border-radius: 43%;
+                background: #7cd6fa;
+            }
+
+            .circle2 {
+                position: absolute;
+                z-index: 898;
+                top: 300px;
+                left: -358px;
+
+                width: 1340px;
+                height: 1340px;
+                // transform: rotate(45deg);
+
+                border-radius: 37%;
+                background: #c5ecfc;
+            }
+        }
+    }
+
+
+    .end-time-name,
+    .address-code-name {
+        font-size: 30px;
+
+        margin-top: 66px;
+
+        color: #a6defb;
+    }
+
+    .end-time-value,
+    .address-code-value {
+        font-size: 36px;
+
+        margin-top: 20px;
+
+        color: #fff;
+    }
+}

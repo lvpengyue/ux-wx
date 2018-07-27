@@ -130,22 +130,22 @@ export default {
         */
         async handleAdd() {
             if (this.location.username.length < 2) {
-                this.$toast('请输入收货人');
+                this.$toast.fail('请输入收货人');
 
                 return false;
             }
             if (!/^[1][0,1,2,3,4,5,6,7,8,9][0-9]{9}$/.test(this.location.phone)) {
-                this.$toast('请输入正确的手机号');
+                this.$toast.fail('请输入正确的手机号');
 
                 return false;
             }
             if (!this.selectAddress) {
-                this.$toast('请选择省市区');
+                this.$toast.fail('请选择省市区');
 
                 return false;
             }
             if (!this.location.streetAddress) {
-                this.$toast('请输入详细地址');
+                this.$toast.fail('请输入详细地址');
 
                 return false;
             }

@@ -19,20 +19,16 @@
                 </p>
             </div>
         </div>
-        <mt-navbar v-model="selected">
-            <mt-tab-item id="shop-detail">产品详情</mt-tab-item>
-            <mt-tab-item id="buy-know">购买须知</mt-tab-item>
-        </mt-navbar>
-        <mt-tab-container v-model="selected">
-            <mt-tab-container-item id="shop-detail">
+        <van-tabs v-model="selected">
+            <van-tab title="商品详情">
                 <div v-html="shopDetail.data.mallProduct.appHtml">
                 </div>
-            </mt-tab-container-item>
-            <mt-tab-container-item id="buy-know">
+            </van-tab>
+            <van-tab title="购买须知">
                 <div v-html="shopDetail.data.mallProduct.extDesc1">
                 </div>
-            </mt-tab-container-item>
-        </mt-tab-container>
+            </van-tab>
+        </van-tabs>
     </div>
 </template>
 

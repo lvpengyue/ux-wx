@@ -19,35 +19,18 @@
     color: red;
 }
 
-.pay .mint-cell-wrapper {
+.pay .van-cell,
+.pay .van-cell .van-cell__left-icon,
+.pay .van-cell .van-cell__right-icon {
     font-size: 34px; /* px */
     line-height: 100px; /* px */
 
     height: 100px; /* px */
+    padding: 0 10px;
 }
 
-.pay .mint-cell-wrapper .mint-cell-title img {
-    width: 48px; /* px */
-    height: 48px; /* px */
-}
+.pay .van-icon-wechat::before {
+    font-size: 40px;
 
-.pay .mint-cell-wrapper .mint-cell-value img {
-    width: 24px; /* px */
-    height: 24px; /* px */
-}
-
-.icon-success {
-    width: 120px; /* px */
-    height: 120px; /* px */
-
-    background-image: url("./assets/success@2x.png");
-    background-size: cover;
-}
-
-.icon-fail {
-    width: 120px; /* px */
-    height: 120px; /* px */
-
-    background-image: url("./assets/fail@2x.png");
-    background-size: cover;
+    color: #459d38;
 }

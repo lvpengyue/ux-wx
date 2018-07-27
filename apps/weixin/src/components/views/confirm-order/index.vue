@@ -3,10 +3,10 @@
         <edit-address :editVisible="editVisible"
                       @hideEdit="hideEdit()"></edit-address>
         <address-box @showEdit="showEdit()"></address-box>
-        <mt-button type="primary"
+        <van-button type="primary"
                    size="small"
                    @click="showEdit()"
-                   v-show="!$groupAddress || !$groupAddress.data">新增收货地址</mt-button>
+                   v-show="!$groupAddress || !$groupAddress.data">新增收货地址</van-button>
         <shop-description :shopOrder="pinDetail.data.productOrder"></shop-description>
         <div class="tip"
              v-if="$groupAddress && $groupAddress.data != {}">

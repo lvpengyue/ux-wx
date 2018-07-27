@@ -1,4 +1,7 @@
-import { mapActions, mapGetters } from 'vuex';
+import {
+    mapActions,
+    mapGetters
+} from 'vuex';
 import wx from 'weixin-js-sdk';
 import wxMethods from '../../utils/$wx-share';
 import shopDescription from '../../widgets/shop-description';
@@ -89,19 +92,11 @@ export default {
         },
 
         handleSuccess() {
-            this.$toast({
-                message: '支付成功',
-                iconClass: 'icon icon-success',
-                duration: 2000
-            });
+            this.$toast.success('支付成功');
         },
 
         handleFail() {
-            this.$toast({
-                message: '支付失败',
-                iconClass: 'icon icon-fail',
-                duration: 200000
-            });
+            this.$toast.fail('支付失败');
         },
 
         handleShare() {
@@ -109,7 +104,9 @@ export default {
         },
 
         linkRider() {
-            this.$messagebox.confirm('确定拨打骑手电话吗').then(() => {
+            this.$dialog.confirm({
+                message: '确定拨打骑手电话吗'
+            }).then(() => {
                 window.location.href = `tel:${this.orderDetail.data.rider.phone}`;
             }).catch(() => false);
         }

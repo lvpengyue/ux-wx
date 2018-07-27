@@ -12,11 +12,11 @@
                 <div class="host" v-if="index === 0">
                     <img src="./assets/host@2x.png"
                         alt="">
-                    <img :src="item.aliPic" v-if="item.aliPic">
+                    <img :src="item.aliPic+'?x-oss-process=image/resize,m_fill,h_240,w_240'" v-if="item.aliPic">
                     <img src="./assets/default-head.png" v-else>
                 </div>
                 <div v-else>
-                    <img :src="item.aliPic" v-if="item.aliPic" alt="">
+                    <img :src="item.aliPic+'?x-oss-process=image/resize,m_fill,h_240,w_240'" v-if="item.aliPic" alt="">
                     <img src="./assets/default-head.png" alt="" v-else>
                 </div>
             </template>

@@ -8,22 +8,33 @@
         border-bottom: 1px solid #ddd; /* no */
     }
 
-    & > .mint-button {
-        height: 40px; /* px */
+    & > .van-button {
+        font-size: 28px;
+        line-height: 60px; /* px */
+
+        height: 60px; /* px */
         margin: 20px; /* px */
+        padding: 0 20px;
+
+        border: none;
+        border-radius: 20px;
+        background-color: #12b8f6;
     }
 
     .tip {
         line-height: 40px; /* no */
 
         height: 40px; /* no */
+        margin-top: 10px;
         padding: 0 20px; /* px */
 
         color: #12b8f6;
 
         img {
             position: relative;
-            top: 3px;
+
+            height: 20px;
+            // top: 3px;
         }
     }
 

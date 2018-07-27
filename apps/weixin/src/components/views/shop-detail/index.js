@@ -6,19 +6,19 @@ export default {
         next(async (vm) => {
             const id = to.params.id;
 
-            vm.$indicator.open();
+            vm.$toast.loading('加载中');
             await vm.shopGetDetail({
                 id,
                 token: vm.$groupUserData.sysToken,
                 userId: vm.$groupUserData.id
             });
 
-            vm.$indicator.close();
+            vm.$toast.clear();
         });
     },
     data() {
         return {
-            selected: 'shop-detail'
+            selected: 0
         };
     },
 

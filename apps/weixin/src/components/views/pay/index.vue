@@ -3,10 +3,9 @@
         <div class="content">
             <p class="price">支付金额：<span>￥{{pinDetail.data.productOrder.totalPrice / 100}}</span></p>
             <div @click.prevent="wxPay()">
-                <mt-cell title="微信支付">
-                    <img slot="icon" src="./assets/wx@2x.png" alt="">
-                    <span><img src="./assets/shape-gray@2x.png" alt=""></span>
-                </mt-cell>
+                <van-cell-group>
+                    <van-cell title="微信支付" icon="wechat" is-link />
+                </van-cell-group>
             </div>
         </div>
     </div>

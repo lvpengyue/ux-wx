@@ -13,6 +13,7 @@ export default {
     beforeRouteEnter(to, from, next) {
         document.title = '悠洗商城';
         next(async (vm) => {
+            await vm.$groupSetUserData('');
             vm.$groupSetRsa(to.params.rsa); // 获取订单详情
             await vm.pinGetOrderDetail({
                 rsaStr: vm.$groupRsa,
@@ -28,9 +29,9 @@ export default {
             if (vm.pinDetail.data.groupOrderRefer.groupStatus == 3 || vm.pinDetail.data.groupOrderRefer
                 .groupStatus == 2) {
                 vm.shareShow = false;
-            } else if (vm.pinDetail.data.user) {
+            } else if (vm.$groupUserData) {
                 vm.pinDetail.data.groupUserList.forEach((item) => {
-                    if (item.id === vm.pinDetail.data.user.id) {
+                    if (item.id === vm.$groupUserData.id) {
                         vm.shareShow = false;
                         vm.toShare = true;
                     }
@@ -44,7 +45,7 @@ export default {
                     login: false,
                     code: true
                 };
-            } else if (!vm.pinDetail.data.user || !vm.pinDetail.data.user.id) {
+            } else if (!vm.$groupUserData || !vm.$groupUserData.id) {
                 vm.messageObject = {
                     out: true,
                     login: true,
@@ -91,7 +92,8 @@ export default {
             'pinUserLogin',
             'pinValidImageCodeDetail',
             'pinGetImageCodeDetail',
-            'pinGetCodeDetail'
+            'pinGetCodeDetail',
+            'pinResetOrderDetail'
         ]),
         closeLogin() {
             this.messageObject = {
@@ -103,7 +105,7 @@ export default {
         async getCode() {
             if (this.phone && /^[1][0,1,2,3,4,5,6,7,8,9][0-9]{9}$/.test(this.phone)) {
                 // 如果有图片验证码，先进行图片验证码的操作
-                if (this.captcha || (this.pinCodeDetail && this.pinCodeDetail.data.imageBase64String)) {
+                if (this.captcha || (this.pinCodeDetail && this.pinCodeDetail.data)) {
                     await this.pinValidImageCodeDetail({
                         code: this.captcha,
                         phone: this.phone
@@ -142,7 +144,7 @@ export default {
                     }
                 }
             } else {
-                this.$toast('请正确填写手机号');
+                this.$toast.fail('请正确填写手机号');
             }
         },
 
@@ -163,9 +165,9 @@ export default {
         async handleSubmits() {
             // 然后验证登录
             if (!this.phone || !/^[1][0,1,2,3,4,5,6,7,8,9][0-9]{9}$/.test(this.phone)) {
-                this.$toast('请正确填写手机号');
+                this.$toast.fail('请正确填写手机号');
             } else if (!this.code) {
-                this.$toast('请填写验证码');
+                this.$toast.fail('请填写验证码');
             } else {
                 await this.pinUserLogin({
                     code: this.code,
@@ -186,12 +188,12 @@ export default {
          * 拼团操作，要先判断是否登陆
          */
         async handlePin() {
-            await this.pinGetOrderDetail({
-                rsaStr: this.$groupRsa,
-                pageUrl: encodeURIComponent(window.location.href)
-            });
-            if (!this.$groupUserData || !this.$groupUserData.id || !this.pinDetail.data.user) {
-                this.$toast('请先登录悠洗');
+            // await this.pinGetOrderDetail({
+            //     rsaStr: this.$groupRsa,
+            //     pageUrl: encodeURIComponent(window.location.href)
+            // });
+            if (!this.$groupUserData || !this.$groupUserData.id) {
+                this.$toast.fail('请先登录悠洗');
                 this.messageObject = {
                     out: true,
                     login: true,

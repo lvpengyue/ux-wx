@@ -124,10 +124,11 @@ const actions = {
         commit,
         dispatch,
         state
-    }) {
+    }, params) {
         try {
             const response = await dispatch('$apisCall', {
-                config: $apiConf.MALL_GET_CONFIG
+                config: $apiConf.MALL_GET_CONFIG,
+                params
             });
 
             if (response.code !== 1) {

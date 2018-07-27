@@ -15,7 +15,7 @@ const state = {
 
     imgValid: '',  // 图片验证码通过结果
 
-    loginVali: '' // 登陆结果
+    loginValid: '' // 登陆结果
 };
 
 const PIN_SET_DETAIL = 'PIN_SET_DETAIL';
@@ -91,6 +91,25 @@ const actions = {
             });
         } catch (error) {
             alert('获取数据失败');
+        }
+    },
+
+    /**
+     * 重置订单详情接口
+     * @param {Object} context context
+     * @param {Object} params rsa
+     */
+    async pinResetOrderDetail({
+        commit,
+        state
+    }, params) {
+        try {
+            commit({
+                type: PIN_SET_DETAIL,
+                payload: params
+            });
+        } catch (error) {
+            alert('重置订单详情失败');
         }
     },
 

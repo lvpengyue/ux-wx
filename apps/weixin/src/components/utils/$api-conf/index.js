@@ -230,5 +230,90 @@ export default Object.assign({
                 withCredentials: true
             }
         }
+    },
+
+    /**
+     * 意见反馈
+     * @type {Object}
+     */
+    API_SUGGEST_NEW: {
+        name: 'API_SUGGEST_NEW',
+
+        proxy: {
+            url: '/api/suggest/new',
+            method: 'POST',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 问卷调查提交
+     * @type {Object}
+     */
+    API_USER_ANWSER_SUBMIT: {
+        name: 'API_USER_ANWSER_SUBMIT',
+
+        proxy: {
+            url: '/api/user-anwser/submit',
+            method: 'POST',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 故障报修提交
+     * @type {Object}
+     */
+    API_WASHER_FAULT_NEW: {
+        name: 'API_WASHER_FAULT_NEW',
+
+        proxy: {
+            url: '/api/washer-fault/new',
+            method: 'POST',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 获取故障机器编号
+     * @type {Object}
+     */
+    API_WASHER_FAULT_GET: {
+        name: 'API_WASHER_FAULT_GET',
+
+        proxy: {
+            url: '/api/washer-fault/get',
+            method: 'POST',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
+    },
+
+    /**
+     * 申请退款
+     * @type {Object}
+     */
+    API_ORDER_REFUND: {
+        name: 'API_ORDER_REFUND',
+
+        proxy: {
+            url: '/api/order/refund',
+            method: 'POST',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            }
+        }
     }
 }, $apiConf);

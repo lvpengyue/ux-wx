@@ -10,8 +10,10 @@ export default {
     beforeRouteEnter(to, from, next) {
         document.title = '支付';
         next(async (vm) => {
-            vm.$indicator.open();
-            await vm.payGetWxconfig();
+            vm.$toast.loading('加载中');
+            await vm.payGetWxconfig({
+                pageUrl: encodeURIComponent(window.location.href)
+            });
 
             // 获取wx支付基础配置,并初始化wx
             await wx.config({
@@ -24,7 +26,7 @@ export default {
                     'chooseWXPay'
                 ]
             });
-            vm.$indicator.close();
+            vm.$toast.clear();
         });
     },
     data() {
@@ -48,20 +50,25 @@ export default {
         ]),
 
         async wxPay() {
-            this.$indicator.open();
+            this.$toast.loading('加载中');
             const that = this;
 
             // 第一步创建拼团订单
             await this.payGetCreateGroup({
                 addressId: this.$groupAddress.data.id,
-                groupOrderId: this.$route.params.groupOrderId,
+                groupOrderId: this.$route.query.groupOrderId,
                 productId: this.pinDetail.data.productOrder.productId,
                 token: this.$groupUserData.sysToken,
                 userId: this.$groupUserData.id
             });
 
-            if (this.payCreateGroup.code != 1 && !this.confirmOrderCreateGroup.success) {
-                this.$toast('创建拼团订单失败');
+            if (this.payCreateGroup.code != 1 && !this.payCreateGroup.success) {
+                this.$toast.fail('创建拼团订单失败');
+
+                // this.$toast.success({
+                //     message: '支付成功',
+                //     duration: 1500
+                // });
             } else {
                 // 第二步 创建支付订单
                 await this.payGetDetail({
@@ -71,17 +78,19 @@ export default {
                     userId: this.$groupUserData.id
                 });
                 if (this.payDetail.code != 1 && !this.payDetail.success) {
-                    this.$indicator.close();
+                    this.$toast.clear();
+                    this.$toast.fail('创建支付订单失败');
 
                     return false;
                 }
-            }
 
-            this.$indicator.close();
+                this.$toast.clear();
 
-            // 第三步，调用支付
+                     // 第三步，调用支付
 
-            wx.ready(() => {
+                // wx.ready(() => {
+
+                // });
                 wx.chooseWXPay({
                     appId: that.payDetail.data.appid,
                     timestamp: that.payDetail.data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
@@ -102,14 +111,10 @@ export default {
                     },
                     fail(error) {
                         // 支付失败的回调函数
-                        that.$toast({
-                            message: '支付失败',
-                            iconClass: 'icon icon-fail',
-                            duration: 2000
-                        });
+                        that.$toast.fail('支付失败');
                     }
                 });
-            });
+            }
         }
     }
 };

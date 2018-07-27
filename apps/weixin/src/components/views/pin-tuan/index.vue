@@ -11,12 +11,12 @@
             <shop-description :shopOrder="pinDetail.data.productOrder"></shop-description>
             <div class="people-wrap">
                 <people-num :peopleData="pinDetail"></people-num>
-                <mt-button type="primary"
-                           @click="handlePin()"
-                           v-show="shareShow">确定拼团</mt-button>
-                <mt-button type="primary"
-                           @click="handleToShare()"
-                           v-show="toShare">去分享</mt-button>
+                <van-button type="primary"
+                            @click="handlePin()"
+                            v-show="shareShow">确定拼团</van-button>
+                <van-button type="primary"
+                            @click="handleToShare()"
+                            v-show="toShare">去分享</van-button>
             </div>
             <div class="import-message">
                 <span>拼单须知：</span>满4人拼单成功，人不满退款
@@ -57,20 +57,21 @@
                             倒计时: {{backSec}}秒
                         </div>
                     </div>
-                    <mt-field label="验证码"
-                              v-model="captcha"
-                              v-if="pinCodeDetail && pinCodeDetail.data && pinCodeDetail.data.needImageCode">
+                    <div class="image-captcha-wrap" v-if="pinCodeDetail && pinCodeDetail.data && pinCodeDetail.data.needImageCode">
+                        <van-field label="验证码"
+                                   v-model="captcha">
+                        </van-field>
                         <img :src="`data:image/jpeg;base64,${pinCodeDetail.data.imageBase64String}`"
                              @click="getImgCode()">
-                    </mt-field>
-                    <mt-button type="primary"
-                               @click.prevent="handleSubmits()">登录</mt-button>
+                    </div>
+                    <van-button type="primary"
+                                @click.prevent="handleSubmits()">登录</van-button>
                 </form>
             </div>
             <div class="code"
                  v-if="messageObject.code">
                 <p>长按识别二维码，关注悠洗洗衣</p>
-                <p>关注后继续购买，才能接受发货通知</p>
+                <p>关注后继续购买，才能接收发货通知</p>
                 <img src="./assets/code.png"
                      alt="这是二维码图片">
             </div>

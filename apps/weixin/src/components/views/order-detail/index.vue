@@ -25,21 +25,21 @@
         <div class="people-wrap"
              v-if="orderDetail.data.productOrder.groupStatus !== 3">
             <people-num :peopleData="orderDetail"></people-num>
-            <mt-button type="primary"
-                       @click="handleShare()">分享好友</mt-button>
+            <van-button type="primary"
+                        @click="handleShare()">分享好友</van-button>
         </div>
         <div class="trans-message"
              v-if="orderDetail.data.productOrder.groupStatus === 3 && orderDetail.data.rider.userType !== 3">
-            <mt-cell title="配送编码"
-                     :value="orderDetail.data.productOrder.sendCode"></mt-cell>
-            <mt-cell title="配送骑手">
+            <van-cell title="配送编码"
+                      :value="orderDetail.data.productOrder.sendCode"></van-cell>
+            <van-cell title="配送骑手">
                 <span class="link-rider"
                       @click="linkRider()">联系骑手</span> | {{orderDetail.data.rider.userName}}
-            </mt-cell>
-            <mt-cell title="下单时间"
-                     :value="orderDetail.data.productOrder.createTime"></mt-cell>
-            <mt-cell title="发货时间"
-                     :value="orderDetail.data.productOrder.sendTime"></mt-cell>
+            </van-cell>
+            <van-cell title="下单时间"
+                      :value="orderDetail.data.productOrder.createTime"></van-cell>
+            <van-cell title="发货时间"
+                      :value="orderDetail.data.productOrder.sendTime"></van-cell>
         </div>
     </div>
 </template>

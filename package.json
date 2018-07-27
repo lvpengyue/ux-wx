@@ -54,8 +54,10 @@
   },
   "dependencies": {
     "babel-runtime": "^6.22.0",
+    "exif-js": "^2.3.0",
     "jquery": "^3.0.0",
     "js-cookie": "^2.1.2",
+    "js-md5": "^0.7.3",
     "localforage": "^1.5.0",
     "mint-ui": "^2.2.7",
     "moment": "^2.18.1",
@@ -63,6 +65,7 @@
     "normalizr": "^3.1.0",
     "url-parse": "^1.1.7",
     "util": "^0.10.3",
+    "vant": "^1.1.2",
     "vue": "^2.3.3",
     "vue-picker": "0.0.4",
     "vue-router": "^2.5.3",

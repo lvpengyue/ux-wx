@@ -10,16 +10,16 @@ export default {
     beforeRouteEnter(to, from, next) {
         document.title = '确认订单';
         next(async (vm) => {
-            vm.$indicator.open();
+            vm.$toast.loading('加载中');
             const groupOrderId = to.params.groupOrderId;
 
             await vm.confirmOrderGetDetail({
                 groupOrderId,
                 productId: vm.pinDetail.data.productOrder.productId,
-                userId: vm.pinDetail.data.user.id
+                userId: vm.$groupUserData.id
             });
 
-            vm.$indicator.close();
+            vm.$toast.clear();
 
             if (vm.confirmOrderDetail.code != 1) {
                 vm.$router.back();
@@ -70,9 +70,9 @@ export default {
                 this.$toast('请新增收货地址');
             } else {
                 this.$router.push({
-                    name: 'pay',
-                    params: {
-                        orderId: this.$route.params.groupOrderId
+                    path: '/pay',
+                    query: {
+                        groupOrderId: this.$route.params.groupOrderId
                     }
                 });
             }
